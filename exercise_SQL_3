@@ -1,0 +1,32 @@
+CREATE TABLE PROFESOR (
+	id INT NOT NULL,
+  	nombre VARCHAR(45) NOT NULL, 
+  	apellido VARCHAR(45) NOT NULL,
+  	fecha_nacimiento varchar(45) NOT NULL,
+  	salario INT NOT NULL
+);
+-- Datos
+INSERT INTO PROFESOR VALUES (1, 'Juan', 'Perez', '1990-06-06', 55000);
+INSERT INTO PROFESOR VALUES (2, 'Maria Emilia', 'Paz', '1984-07-15', 72000);
+INSERT INTO PROFESOR VALUES (3, 'Martin', 'Correa', '1987-12-07', 63000);
+INSERT INTO PROFESOR VALUES (4, 'Lucia', 'Diaz', '1991-02-24', 45000);
+INSERT INTO PROFESOR VALUES (5, 'Raul', 'Martinez', '1980-10-15', 85000);
+INSERT INTO PROFESOR VALUES (6, 'Mabel', 'Rios', '1982-06-12', 83000);
+
+-- 1- Nombre, apellido y fecha de nacimiento de todos los empleados, ordenado por fecha de nacimiento ascendente.
+SELECT DISTINCT nombre, apellido, fecha_nacimiento FROM PROFESOR ORDER BY fecha_nacimiento;
+
+-- 2- Todos los profesores cuyo salario sea mayor o igual a 65000.
+SELECT * from PROFESOR where salario >= 65000;
+
+-- 3- Todos los profesores que nacieron en la década del 80.
+SELECT * from PROFESOR where fecha_nacimiento BETWEEN '1980-01-01' and '1989-12-31';
+
+-- 4- 5 registros.
+SELECT * from PROFESOR LIMIT 5;
+
+-- 5- Todos los profesores cuyo apellido inicie con la letra “P”
+SELECT apellido from PROFESOR where apellido LIKE 'P%';
+
+-- 6- Los profesores que nacieron en la década del 80 y tienen un salario mayor a 80000
+SELECT * from PROFESOR where fecha_nacimiento BETWEEN '1980-01-01' AND '1989-12-31' AND salario > 80000;
