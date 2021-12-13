@@ -1,0 +1,14 @@
+-- 1- Escriba una consulta para saber cuántos estudiantes son de la carrera Mecánica.
+SELECT COUNT(ESTUDIANTE_legajo) AS "estudiantes_mecanica" FROM ESTUDIANTE WHERE carrera = 'Mecánica';
+
+-- 2- Escriba una consulta para saber, de la tabla PROFESOR, el salario mínimo de los profesores nacidos en la década del 80.
+SELECT MIN (salario) AS 'salario_minimo' FROM PROFESOR WHERE fecha_nacimiento BETWEEN '1980-01-01' AND '1989-12-31';
+
+-- 4-1- Cantidad de pasajeros por pais
+	SELECT p2.nombre AS 'pais', COUNT(*) AS 'cantidad_pasajeros' FROM PASAJERO p INNER JOIN PAIS p2 ON p.idpais = p2.idpais GROUP BY p2.nombre;
+-- 4-2 Suma de pagos realizados
+	SELECT SUM (monto + impuesto) as 'pagos_total' FROM PAGO;
+-- 4-3 Suma de todos los pagos que realizó un pasajero. El monto debe aparecer con dos decimales.
+	SELECT p.nombre, ROUND(SUM(monto + impuesto), 2) AS 'suma_pagos' FROM PASAJERO p INNER JOIN PAGO p2 ON p.idpasajero = p2.idpasajero GROUP BY p.nombre;
+-- 4-4 Promedio de los pagos que realizó un pasajero.
+	SELECT p.nombre, ROUND(AVG(monto + impuesto),2) as 'promedio_pagos' FROM PASAJERO p INNER JOIN PAGO p2 ON p.idpasajero = p2.idpasajero GROUP BY p.nombre;
