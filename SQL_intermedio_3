@@ -1,0 +1,22 @@
+
+-- a- Crear una tabla persona sin primary key y solamente con dos campos: id y nombre
+CREATE TABLE persona (
+	id INT NOT NULL,
+  	nombre VARCHAR(45) NOT NULL
+);
+
+-- b- Inserte datos siguiendo un orden no secuencial para el id.
+INSERT INTO persona VALUES (5, 'Jorge');
+INSERT INTO persona VALUES (1, 'Emi');
+INSERT INTO persona VALUES (7, 'Leo');
+INSERT INTO persona VALUES (3, 'Matias');
+INSERT INTO persona VALUES (8, 'Maria');
+
+-- c- Consulte los datos para visualizar el orden de registros.
+SELECT * FROM persona;
+
+-- d- Agregue una clave primaria para el campo id.
+ALTER TABLE persona ADD CONSTRAINT PK_id PRIMARY KEY (id);
+
+-- e- Consulte los datos para visualizar el orden de registros.
+SELECT * FROM persona;
